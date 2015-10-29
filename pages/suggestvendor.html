@@ -1,0 +1,42 @@
+
+<div class="panel panel-default col-md-10 col-xs-12">
+  <div class="panel-body" >
+	<div>
+		<p class="lead">
+			<img src="img/truck.png"  style="width:70px;height:50px" alt="">&nbsp;Know a Food Truck not on our list yet? Tell us about them!
+		</p>
+		
+	</div>
+
+	<div class="contact-form">
+		<form name="entryForm" ng-submit="sugVendor(entryForm.$valid)" class="form-horizontal col-md-8" role="form" novalidate>
+
+
+		  <div class="form-group">
+		    <label for="subject" class="col-md-2">Vendor Name</label>
+		    <div class="col-md-10">
+		    	<input type="text" class="form-control" placeholder="ex. Kate's Cupcakes" maxlength="40" ng-model="entry.name" required>
+		    </div>
+		  </div>
+
+
+		  <div class="form-group">
+		    <label for="message" class="col-md-2">Details</label>
+		    <div class="col-md-10">
+		    	<textarea class="form-control" placeholder="Any helpful information about the food truck like a contact person and number or social media accounts or website..." maxlength="500" ng-model="entry.message" required></textarea>
+		    </div>
+		  </div>
+
+		  <div class="form-group">
+		  	<div class="col-md-12 text-right">
+		  		<button type="reset" class="btn btn-md btn-primary" ng-click="clear()">Clear</button>
+		  		<button type="submit" class="btn btn-md btn-primary" ng-disabled="entryForm.$invalid">Submit</button>
+		  	</div>
+		  </div>
+		</form>	
+	</div>
+
+  </div>
+
+
+</div>

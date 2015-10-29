@@ -1,0 +1,39 @@
+
+<div class="panel panel-default">
+  <div class="panel-body" >
+    
+	<div class="media">
+  		<div class="media-left">
+   		 <img class="media-object" ng-src="vendorlogo/{{singleVendor.logo}}" alt="..." style="width:150px;height:150px;">
+  	</div>
+  	<div class="media-body">
+    <h3 class="media-heading">{{singleVendor.name}}</h3>
+    <a href="{{singleVendor.fb}}"><img src="img/fb.png" alt="" style="width:40px;height:40px;" ng-hide="!singleVendor.fb.length"></a>
+	<a href="{{singleVendor.tw}}"><img src="img/tw.png" alt="" style="width:40px;height:40px;" ng-hide="!singleVendor.tw.length"></a>
+	<a href="{{singleVendor.ig}}"><img src="img/ig.png" alt="" style="width:40px;height:40px;" ng-hide="!singleVendor.ig.length"></a>
+	<a href="{{singleVendor.web}}"><img src="img/web.png" alt="" style="width:40px;height:40px;" ng-hide="!singleVendor.web.length"></a>
+	<br><br>
+	<p>{{singleVendor.desc}}</p>
+	<br>
+  	</div>
+
+  </div>
+
+  <div class="well well-sm" ng-hide="!venCom.length">
+  	
+	<h4>Recent Comments</h4>
+
+	<ul id="coms"> 
+	<li id="com" ng-repeat="vcom in venCom | orderBy: '-cNum'">
+	     {{vcom.d8}} - <strong>{{vcom.user}}:</strong> {{vcom.com}}
+	</li>
+	</ul>
+
+  </div>
+
+
+
+
+
+
+</div>

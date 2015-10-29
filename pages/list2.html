@@ -1,0 +1,28 @@
+<h3>Just Spotted</h3>
+<p>Here's a list of last 5 spotted Food Trucks! Shared by Food trucks lovers like you!</p>
+<p><i>Spotted a Food Truck not on any of our list yet? <a ui-sref="home.spotsubmitform"> Click here to share it with us!</a></i></p>
+<div class="table-responsive">
+  <table st-safe-src="spotted" st-table="displayedSpot" class="table table-striped table-condensed">
+  	<thead>
+	  <tr>
+	    <th width="25%">Vendor Name</th>
+	    <th width="25%">Last Seen At</th>
+	    <th width="15%">City</th>
+	    <th st-sort="date" st-sort-default="reverse" width="25%">Spotted On</th>
+	    <th width="10%">Map</th>
+	  </tr>
+
+	</thead>
+
+	<tbody ng-repeat="spot in displayedSpot | limitTo: '5'">
+	  <tr>
+	    <td><a ui-sref="home.vendor({id: spot.vendorId})">{{spot.name}}</a></td>
+	    <td>{{spot.loc}}</td>
+	    <td>{{spot.city}}</td>
+	    <td>{{spot.date}} - {{spot.time}}</td>
+	    <td><img class="img-responsive" style="width:30px;height:20px;" src="/img/mappin.png" alt="" ng-click="showMap(spot.locadd)"></td>
+	  </tr>
+	</tbody>
+
+  </table>
+</div>

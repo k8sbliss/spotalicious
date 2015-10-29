@@ -1,0 +1,28 @@
+<h3>Mobile Vendors Directory</h3>
+<p>Here's a list of Food Trucks, carts, and trailers in Utah that can be tracked here at Spot-a-licious.</p><br>
+
+
+<div class="panel panel-default col-md-12 col-xs-12">
+  <div class="panel-body" >
+    
+<div class="media" ng-repeat="ven in vendor | orderBy: 'name' ">
+  <div class="media-left">
+    <img class="media-object" ng-src="vendorlogo/{{ven.logo}}" alt="..." style="width:150px;height:150px;">
+  </div>
+  <div class="media-body">
+    <h3 class="media-heading">{{ven.name}}</h3>
+    <a href="{{ven.fb}}"><img src="img/fb.png" alt="" style="width:40px;height:40px;" ng-hide="!ven.fb.length"></a>
+<a href="{{ven.tw}}"><img src="img/tw.png" alt="" style="width:40px;height:40px;" ng-hide="!ven.tw.length"></a>
+<a href="{{ven.ig}}"><img src="img/ig.png" alt="" style="width:40px;height:40px;" ng-hide="!ven.ig.length"></a>
+<a href="{{ven.web}}"><img src="img/web.png" alt="" style="width:40px;height:40px;" ng-hide="!ven.web.length"></a>
+    <br><br>
+	<p>{{ven.desc}}</p>
+	<br>
+  </div>
+</div>
+
+
+  </div>
+</div>
+
+

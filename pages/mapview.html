@@ -1,0 +1,21 @@
+<h3>What's Around You???</h3>
+<p>Spot the food trucks that are close to where you're at today!</p>
+<br>
+<p><small>LEGEND:<br><img src="http://maps.google.com/mapfiles/kml/paddle/red-circle.png" alt="" style="width:30px;height:30px;"> = Your current location<br><img src="http://maps.google.com/mapfiles/kml/pal2/icon35.png" alt=""> = Food Truck locations <i>(Click the marker to view the Food Truck's info)</i></small>
+</p>
+<br>
+<div class="map">
+  <map center="current-location" zoom="12">
+
+  <marker position="current-location" title="You are here!">
+  </marker>
+
+  <marker ng-repeat="marker in markerList" position="{{marker.pos}}" icon="http://maps.google.com/mapfiles/kml/pal2/icon35.png" on-click="showInfoWindow(event, 'infomsg')">
+
+	<info-window id="infomsg" visible="true" >
+	  <span>{{marker.name}} - <a ui-sref="home.vendor({id: marker.vId})">View Info</a></span>
+	</info-window>
+
+  </marker>
+  </map>
+  </div>

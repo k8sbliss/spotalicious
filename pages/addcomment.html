@@ -1,0 +1,52 @@
+
+<div class="panel panel-default col-md-10 col-xs-12">
+  <div class="panel-body" >
+	<div>
+		<p>Did you spot {{singleSched.name}} at {{singleSched.locname}} between {{singleSched.time}}? </p>	
+	</div>
+
+	<div class="contact-form">
+		<form name="entryForm" ng-submit="addComment(entryForm.$valid)" class="form-horizontal col-md-8" role="form" novalidate>
+
+		  <div class="form-group">
+		  <label for="subject" class="col-md-2">Spotted or not?</label>
+
+		  <div class="col-md-10">
+			<label class="radio-inline">
+			  <input type="radio" name="inlineRadioOptions" id="r1" ng-model="choice" ng-value="1"> Spotted
+			</label>
+			<label class="radio-inline">
+			  <input type="radio" name="inlineRadioOptions" id="r2" ng-model="choice" ng-value="2"> No Show
+			</label>
+			</div>
+		  </div>
+
+
+		  <div class="form-group">
+		    <label for="subject" class="col-md-2">Name</label>
+		    <div class="col-md-10">
+		    	<input type="text" class="form-control" placeholder="you name..." maxlength="40" ng-model="comm.user" required>
+		    </div>
+		  </div>
+
+
+		  <div class="form-group">
+		    <label for="message" class="col-md-2">Comment</label>
+		    <div class="col-md-10">
+		    	<textarea class="form-control" placeholder="any thoughts you might want to say...." maxlength="100" ng-model="comm.comment" required></textarea>
+		    </div>
+		  </div>
+
+		  <div class="form-group">
+		  	<div class="col-md-12 text-right">
+		  		<button type="reset" class="btn btn-md btn-primary" ng-click="clear()">Clear</button>
+		  		<button type="submit" class="btn btn-md btn-primary" ng-disabled="entryForm.$invalid">Submit</button>
+		  	</div>
+		  </div>
+		</form>	
+	</div>
+
+  </div>
+
+
+</div>

@@ -1,0 +1,82 @@
+<h3>Weekly Schedule</h3>
+<p>Find your favorite food trucks. Know where they'll be at and when they'll be there.</p>
+<p><b>Breakfast:</b> Before 10 AM | <b>Lunch:</b> 10 AM - 3 PM | <b>Dinner:</b> After 3 PM</p><br>
+<p><small><i><b>NOTE: </b>Information listed here reflects schedules tracked manually on a weekly basis. It does not reflect variations in schedules causing the food trucks to be off the road or be at a different location due to maintenance, mechanical problems, weather, special events, last minute schedule changes, or other issues. For the most accurate information, please check their individual social media accounts or websites.</small></i></p><br>
+<img src="img/spotyes.png" alt="" style="width:20px;height:20px;"> <img src="img/spotno.png" alt="" style="width:20px;height:20px;"><small> Click these icons to share if you spotted the Food truck or not.</small><br><br>
+<div class="table-responsive">
+  <table st-safe-src="schedule" st-table="displayedSched" st-set-filter="myStrictFilter" class="table table-striped table-condensed">
+  	<thead>
+	  <tr>
+	    <th st-sort="date" st-sort-default="true" width="5%">Date</th>
+	    <th st-sort="mealtime" width="10%">Meal Type</th>
+	    <th width="23%">Hours</th>
+	    <th st-sort="name" width="23%">Vendor Name</th>
+	    <th width="20%">Location/Event</th>
+	    <th st-sort="city" width="10%">City</th>
+	    <th width="3%">Spotted</th>
+      <th width="3%">NoShow</th>
+      <th width="3%">Map</th>
+
+	  </tr>
+        <tr>
+	    <th>
+            <select st-search="date">
+            	<option value="">All</option>
+				<option ng-repeat="sched in schedule | unique:'date'" value="{{sched.date}}">{{sched.date}}</option>
+            </select>
+   	    </th>	    
+   	    <th>
+            <select st-search="mealtime">
+            	<option value="">All</option>
+				<option ng-repeat="sched in schedule | unique:'mealtime'" value="{{sched.mealtime}}">{{sched.mealtime}}</option>
+            </select>
+   	    </th>
+	    <th></th>
+	    <th>
+            <select st-search="name">
+            	<option value="">All</option>
+				<option ng-repeat="sched in schedule | unique:'name'" value="{{sched.name}}">{{sched.name}}</option>
+            </select>
+   	    </th>
+	    <th>
+            <select st-search="locname">
+            	<option value="">All</option>
+				<option ng-repeat="sched in schedule | unique:'locname'" value="{{sched.locname}}">{{sched.locname}}</option>
+            </select>
+   	    </th>	    <th>
+            <select st-search="city">
+            	<option value="">All</option>
+				<option ng-repeat="sched in schedule | unique:'city'" value="{{sched.city}}">{{sched.city}}</option>
+            </select>
+   	    </th>
+        <th></th>
+        <th></th>
+        <th></th>
+
+        </tr>
+	</thead>
+
+	<tbody ng-repeat="sched in displayedSched">
+	  <tr>
+	    <td>{{sched.date}}</td>
+	    <td>{{sched.mealtime}}</td>
+	    <td>{{sched.time}}</td>
+	    <td><a ui-sref="home.vendor({id: sched.vendorId})">{{sched.name}}</a></td>
+	    <td>{{sched.locname}}</td>
+	    <td>{{sched.city}}</td>
+      <td><a ui-sref="home.addComment({id2: sched.objectId})"><img src="img/spotyes.png" alt="" style="width:20px;height:20px;"></a> {{sched.spotted}} </td>
+      <td><a ui-sref="home.addComment({id2: sched.objectId})"><img src="img/spotno.png" alt="" style="width:20px;height:20px;"></a> {{sched.noshow}}</td>
+	    <td><img class="img-responsive" style="width:30px;height:20px;" src="/img/mappin.png" alt="" ng-click="showMap(sched.locadd)"></td>
+	  </tr>
+	</tbody>
+    <tfoot>
+    <tr>
+        <td colspan="9" class="text-center">
+            <div st-items-by-page="5" st-pagination="" st-template="pages/pagination.custom.html"></div>
+        </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+
+
