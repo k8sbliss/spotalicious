@@ -236,7 +236,9 @@ var link2 = ""+"maps://maps.google.com/maps?saddr="+add;
 
     if( (navigator.platform.indexOf("iPhone") != -1) 
             || (navigator.platform.indexOf("iPod") != -1)
-            || (navigator.platform.indexOf("iPad") != -1))
+            || (navigator.platform.indexOf("iPad") != -1)
+            || (navigator.platform.indexOf("Android") != -1)
+            || (navigator.platform.indexOf("BlackBerry") != -1))
              window.open(link2);
 
     else
